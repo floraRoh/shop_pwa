@@ -1,26 +1,84 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable */
+import React, { useState, useContext, lazy, Suspense } from "react";
+import { Link, Route, Switch } from "react-router-dom";
+import "./App.scss";
+import NavBar from "Components/NavBar";
+import Jumbo from "Components/Jumbo";
+const List = lazy(() => {
+  return import("Components/List");
+});
+const Detail = lazy(() => {
+  return import("Components/Detail");
+});
+const About = lazy(() => {
+  return import("Components/About");
+});
+const Cart = lazy(() => {
+  return import("Components/Cart");
+});
+import Data from "Components/Data";
+import Footer from "Components/Footer";
+import axios from "axios";
 
 function App() {
+  const [dataList, SetDataList] = useState(Data);
+  // axios.post("서버 url", { id: "codingapple", pw: 1234 });
+  function moreInformation() {
+    axios
+      .get("https://codingapple1.github.io/shop/data2.json")
+      .then((result) => {
+        const AddDataList = [...dataList].concat(result.data);
+        SetDataList(AddDataList);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    return;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Suspense
+        fallback={
+          <div className="spinner-wrap">
+            <div className="spinner-border my-5" role="status">
+              <span className="sr-only"></span>
+            </div>
+            <p>Lodaing....</p>
+          </div>
+        }
+      >
+        <NavBar />
+        <Jumbo />
+        <Switch>
+          <Route path="/reactShop" exact={true}>
+            {/* <ContentContext.Provider value={dataList}> */}
+            <div className="container mt-6 mb-6">
+              <div className="row">
+                <List dataList={dataList} />
+                <div className="text-center">
+                  <button
+                    type="button"
+                    className="btn btn-primary font-bold"
+                    onClick={moreInformation}
+                  >
+                    더 보기
+                  </button>
+                </div>
+              </div>
+            </div>
+            {/* <AA /> */}
+            {/* </ContentContext.Provider> */}
+          </Route>
+          <Route path="/detail/:id">
+            {/* path="/detail/:id" <- :id가 useParam으로 넘어가는 값이다! :path_id 로 넣으면 console창에 path_id로 나타남*/}
+            <Detail dataList={dataList} />
+          </Route>
+          <Route path="/about" component={About}></Route>
+          <Route path="/cart" component={Cart}></Route>
+        </Switch>
+        <Footer />
+      </Suspense>
+    </>
   );
 }
-
 export default App;

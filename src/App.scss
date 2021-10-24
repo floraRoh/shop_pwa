@@ -1,0 +1,67 @@
+// @import "~bootstrap/scss/bootstrap";
+@font-face {
+  font-family: "IM_Hyemin-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #262626;
+  font-size: 16px;
+  font-family: "IM_Hyemin-Regular", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #262626;
+}
+p {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mt-6 {
+  margin-top: 6rem;
+}
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+.tabsTransition-enter {
+  // 애니메이션 시작때 적용할 css
+  opacity: 0;
+}
+.tabsTransition-enter-active {
+  // 애니메이션 동작 때 적용할 css
+  opacity: 1;
+  transition: all 0.5s;
+}
+.spinner-wrap {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .spinner-border {
+    width: 6rem;
+    height: 6rem;
+    animation: 1s linear infinite spinner-border;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 14px;
+  }
+}
