@@ -6,6 +6,7 @@ import { Nav } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 // 컴포넌트 등장/업데이트 시 transition을 쉽게쉽게 줄 수 있음
+import Banner from "Components/Banner";
 
 const tabUi = {
   info: <div>상품정보</div>,
@@ -35,6 +36,22 @@ function Detail(props) {
     };
   }, [isNotice]); // isNotice 업데이트 될 때만 실행해주세요. 안 넣으면 계속 업데이트됨
   // [] => 페이지가 로드 됐을때만 실행됨 (트릭같은거)
+
+  useEffect(() => {
+    let itemArr = localStorage.getItem("currentItem");
+
+    if (itemArr == null) {
+      itemArr = [];
+    } else {
+      itemArr = JSON.parse(itemArr);
+    }
+    itemArr.push(id);
+    itemArr = new Set(itemArr);
+    itemArr = [...itemArr];
+
+    localStorage.setItem("currentItem", JSON.stringify(itemArr));
+  }, []);
+
   const onDecrease = () => {
     SetContentCount(contentCount - 1);
   };
@@ -49,7 +66,10 @@ function Detail(props) {
       <div className="container mt-6 mb-6">
         <div className="row">
           <div className="col-md-6">
-            <img src={findId.image} alt={findId.title} />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/card${id}.jpg`}
+              alt={findId.title}
+            />
           </div>
           <div className="col-md-6 mt-4">
             <h4 className="pt-5">{findId.title}</h4>
@@ -132,6 +152,7 @@ function Detail(props) {
       <CSSTransition in={tabsOn} classNames="tabsTransition" timeout={500}>
         <TabContent tabs={tabs} SetTabsOn={SetTabsOn} />
       </CSSTransition>
+      <Banner />
     </>
   );
 }

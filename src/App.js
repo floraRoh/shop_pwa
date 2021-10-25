@@ -20,6 +20,7 @@ import Data from "Components/Data";
 import Footer from "Components/Footer";
 import axios from "axios";
 
+
 function App() {
   const [dataList, SetDataList] = useState(Data);
   // axios.post("서버 url", { id: "codingapple", pw: 1234 });
