@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.23.0",
+    "bootstrap": "^5.1.3",
     "gh-pages": "^3.2.3",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -21,14 +22,14 @@
     "workbox-background-sync": "^5.1.3",
     "workbox-broadcast-update": "^5.1.3",
     "workbox-cacheable-response": "^5.1.3",
-    "workbox-core": "^5.1.3",
-    "workbox-expiration": "^5.1.3",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
     "workbox-google-analytics": "^5.1.3",
     "workbox-navigation-preload": "^5.1.3",
-    "workbox-precaching": "^5.1.3",
+    "workbox-precaching": "^5.1.4",
     "workbox-range-requests": "^5.1.3",
-    "workbox-routing": "^5.1.3",
-    "workbox-strategies": "^5.1.3",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.3"
   },
   "scripts": {
@@ -54,5 +55,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://floraroh.github.io/shop_pwa"
 }

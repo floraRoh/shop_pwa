@@ -50,7 +50,7 @@ function App() {
         <NavBar />
         <Jumbo />
         <Switch>
-          <Route path="/reactShop" exact={true}>
+          <Route path="/shop_pwa" exact={true}>
             {/* <ContentContext.Provider value={dataList}> */}
             <div className="container mt-6 mb-6">
               <div className="row">

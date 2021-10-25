@@ -11,20 +11,6 @@ const Jumbotron = styled.div`
   background-size: cover;
   font-family: "IM_Hyemin-Regular";
 `;
-const Button = styled.button`
-  background-color: #000000;
-  border: none;
-  padding: 7px 15px;
-  color: white;
-  border-radius: 5px;
-  font-weight: 400;
-  font-size: 16px;
-  &:hover {
-    background-color: #ededed;
-    color: #000000;
-    font-weight: bold;
-  }
-`;
 export default function Jumbo() {
   return (
     <Jumbotron>
