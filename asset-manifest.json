@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/shop_pwa/static/css/main.a0df8c5c.chunk.css",
+    "main.js": "/shop_pwa/static/js/main.bab265d0.chunk.js",
+    "main.js.map": "/shop_pwa/static/js/main.bab265d0.chunk.js.map",
+    "runtime-main.js": "/shop_pwa/static/js/runtime-main.7acfa2b7.js",
+    "runtime-main.js.map": "/shop_pwa/static/js/runtime-main.7acfa2b7.js.map",
+    "static/js/2.62e3eabf.chunk.js": "/shop_pwa/static/js/2.62e3eabf.chunk.js",
+    "static/js/2.62e3eabf.chunk.js.map": "/shop_pwa/static/js/2.62e3eabf.chunk.js.map",
+    "static/css/3.8be43837.chunk.css": "/shop_pwa/static/css/3.8be43837.chunk.css",
+    "static/js/3.49c088f4.chunk.js": "/shop_pwa/static/js/3.49c088f4.chunk.js",
+    "static/js/3.49c088f4.chunk.js.map": "/shop_pwa/static/js/3.49c088f4.chunk.js.map",
+    "static/css/4.e30c51af.chunk.css": "/shop_pwa/static/css/4.e30c51af.chunk.css",
+    "static/js/4.a929e184.chunk.js": "/shop_pwa/static/js/4.a929e184.chunk.js",
+    "static/js/4.a929e184.chunk.js.map": "/shop_pwa/static/js/4.a929e184.chunk.js.map",
+    "static/js/5.c207616b.chunk.js": "/shop_pwa/static/js/5.c207616b.chunk.js",
+    "static/js/5.c207616b.chunk.js.map": "/shop_pwa/static/js/5.c207616b.chunk.js.map",
+    "static/js/6.1a87cec0.chunk.js": "/shop_pwa/static/js/6.1a87cec0.chunk.js",
+    "static/js/6.1a87cec0.chunk.js.map": "/shop_pwa/static/js/6.1a87cec0.chunk.js.map",
+    "static/js/7.17ec88d0.chunk.js": "/shop_pwa/static/js/7.17ec88d0.chunk.js",
+    "static/js/7.17ec88d0.chunk.js.map": "/shop_pwa/static/js/7.17ec88d0.chunk.js.map",
+    "index.html": "/shop_pwa/index.html",
+    "service-worker.js": "/shop_pwa/service-worker.js",
+    "service-worker.js.map": "/shop_pwa/service-worker.js.map",
+    "static/css/3.8be43837.chunk.css.map": "/shop_pwa/static/css/3.8be43837.chunk.css.map",
+    "static/css/4.e30c51af.chunk.css.map": "/shop_pwa/static/css/4.e30c51af.chunk.css.map",
+    "static/css/main.a0df8c5c.chunk.css.map": "/shop_pwa/static/css/main.a0df8c5c.chunk.css.map",
+    "static/js/2.62e3eabf.chunk.js.LICENSE.txt": "/shop_pwa/static/js/2.62e3eabf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7acfa2b7.js",
+    "static/js/2.62e3eabf.chunk.js",
+    "static/css/main.a0df8c5c.chunk.css",
+    "static/js/main.bab265d0.chunk.js"
+  ]
+}
