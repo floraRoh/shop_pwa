@@ -33,7 +33,7 @@ export default function List(props) {
           >
             <Card>
               <ImgBox>
-                <img src={data.image} alt={data.title} />
+                <img src={`/images/card${i}.jpg`} alt={data.title} />
               </ImgBox>
               <h4>{data.title}</h4>
               <p>{`${data.price}원`}</p>

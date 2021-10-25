@@ -61,7 +61,7 @@ function reducer(state = defaultState, action) {
 const store = createStore(combineReducers({ reducer, alertReducer }));
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/shop_pwa">
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>

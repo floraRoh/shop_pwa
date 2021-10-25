@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState, useContext, lazy, Suspense } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import NavBar from "Components/NavBar";
@@ -25,7 +25,7 @@ function App() {
   // axios.post("서버 url", { id: "codingapple", pw: 1234 });
   function moreInformation() {
     axios
-      .get("https://codingapple1.github.io/shop/data2.json")
+      .get("https://floraroh.github.io/shop/data.json")
       .then((result) => {
         const AddDataList = [...dataList].concat(result.data);
         SetDataList(AddDataList);
