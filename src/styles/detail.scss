@@ -1,20 +1,89 @@
-.btn{
-  display: inline-block;
-  margin-top: 1rem;
-  &:not(:last-child){
-    margin-right:1rem;
+.button-hr {
+  display: flex;
+  border-top: 1px solid #ededed;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    border: 1px solid #a0a0a0;
+    flex: 1;
+    &:not(:last-child) {
+      margin-right: 1rem;
+      line-height: 45px;
+    }
   }
 }
-
-.noticeBox{
-  width:100%;
-  padding:20px;
-  background-color:#eeeeee;
+.noticeBox {
+  width: 100%;
+  padding: 20px;
+  background-color: #eeeeee;
   border-radius: 5px;
-  margin-top:1rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
 input {
-  border:1px solid;
+  border: 1px solid;
+}
+.nav {
+  justify-content: space-around;
+  .nav-item {
+    flex: 1;
+    text-align: center;
+    line-height: 30px;
+  }
+}
+.nav-tabs {
+  .nav-link {
+    color: #a0a0a0;
+  }
+  &:active {
+    border-radius: 0;
+  }
+}
+
+.pTitle {
+  font-size: 1.6rem;
+}
+.navbar {
+  .container {
+    justify-content: center;
+    flex-direction: column;
+    .navber-collapse {
+      flex-grow: inherit;
+      .navbar-nav{
+        padding-top:7px;
+      }
+    }
+  }
+}
+.container-sm {
+  max-width: 1024px;
+  .detail-order{
+    margin-left:50px;
+    @media screen and (max-width:768px) {
+      margin-left:0;
+    }
+  }
+  .content-count{
+    
+    button{
+      width:2rem;
+    }
+  }
+}
+
+.flex{
+  display: flex;
+  align-content: center;
+}
+
+.after-col{
+  letter-spacing: 1px;
+  &:after{
+    content: ':';
+    display: inline-block;
+    margin:0 10px;
+  }
 }

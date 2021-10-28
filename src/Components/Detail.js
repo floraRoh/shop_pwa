@@ -7,9 +7,10 @@ import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 // 컴포넌트 등장/업데이트 시 transition을 쉽게쉽게 줄 수 있음
 import Banner from "Components/Banner";
+import DetailInfo from "Components/DetailInfo";
 
 const tabUi = {
-  info: <div>상품정보</div>,
+  info: <DetailInfo />,
   shipping: <div>배송관련</div>,
   refund: <div>환불약관</div>,
 };
@@ -19,7 +20,7 @@ function Detail(props) {
   const findId = props.dataList.find((x) => x.id == id);
   const [isNotice, SetIsNotice] = useState(true);
   const [input, SetInput] = useState("");
-  const [tabs, SetTabs] = useState("");
+  const [tabs, SetTabs] = useState("info");
   const [tabsOn, SetTabsOn] = useState(false);
   const [contentCount, SetContentCount] = useState(0);
 
@@ -28,14 +29,12 @@ function Detail(props) {
   };
   useEffect(() => {
     let timer = setTimeout(() => {
-      // document.querySelector('.noticeBox').style.display="none";
       SetIsNotice(false);
     }, 2000);
     return () => {
       clearTimeout(timer); // 버그방지
     };
-  }, [isNotice]); // isNotice 업데이트 될 때만 실행해주세요. 안 넣으면 계속 업데이트됨
-  // [] => 페이지가 로드 됐을때만 실행됨 (트릭같은거)
+  }, [isNotice]);
 
   useEffect(() => {
     let itemArr = localStorage.getItem("currentItem");
@@ -58,116 +57,133 @@ function Detail(props) {
   const onIncrease = () => {
     SetContentCount(contentCount + 1);
   };
-
   return (
     <>
-      <p>{input}</p>
-      <input onChange={onChange} />
-      <div className="container mt-6 mb-6">
+      <div className="container-sm mt-5 mb-6">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-5">
             <img
-              src={`${process.env.PUBLIC_URL}/images/card${id}.jpg`}
+              src={`${process.env.PUBLIC_URL}/images/list/card${id}.jpg`}
               alt={findId.title}
             />
           </div>
-          <div className="col-md-6 mt-4">
+          <div className="col-md-6 mt-4 detail-order">
             <h4 className="pt-5">{findId.title}</h4>
             <p>{findId.content}</p>
-            <p>{`금액 : ${findId.price}원`}</p>
-            <p className="">
-              {`수량 : `}
-              <button onClick={contentCount > 0 ? onDecrease : null}>-</button>
-              <span>{contentCount}</span>
-              <button onClick={onIncrease}>+</button>
-            </p>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => {
-                props.dispatch({
-                  type: "contentsAdd",
-                  payload: {
-                    id: findId.id,
-                    name: findId.title,
-                    quan: contentCount,
-                    price: findId.price,
-                  },
-                });
-                history.push("/cart");
-              }}
-            >
-              장바구니 담기
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={() => {
-                history.goBack();
-              }}
-            >
-              뒤로가기
-            </button>
+            <div className="flex mt-3">
+              <p className="after-col">금액</p>
+              <p>{`${findId.price.toLocaleString('ko-KR')}원`}</p>
+            </div>
+            <div className="flex mt-2">
+              <p className="after-col">수량</p>
+              <p className="content-count">
+                <button onClick={contentCount > 0 ? onDecrease : null}>
+                  -
+                </button>
+                <span>{contentCount}</span>
+                <button onClick={onIncrease}>+</button>
+              </p>
+            </div>
+            <div className="button-hr">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  props.dispatch({
+                    type: "contentsAdd",
+                    payload: {
+                      id: findId.id,
+                      name: findId.title,
+                      quan: contentCount,
+                      price: findId.price,
+                    },
+                  });
+                  history.push("/cart");
+                }}
+              >
+                장바구니 담기
+              </button>
+              <button type="button" className="btn btn-secondary">
+                바로 주문
+              </button>
+            </div>
             {isNotice ? (
               <div className="noticeBox">재고가 얼마 남지 않았습니다.</div>
             ) : null}
           </div>
         </div>
+        <div className="mt-5">
+          <p className="pTitle">코디아이템</p>
+
+          <div className=""></div>
+          <a
+            className="event my-5"
+            href="https://mixxo.com/product/project.html?cate_no=89"
+            target="_balnk"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/images/detail/event.jpg`}
+              alt=""
+            />
+          </a>
+        </div>
       </div>
-      <Nav variant="tabs" defaultActiveKey="link-0">
-        <Nav.Item>
-          <Nav.Link
-            eventKey="link-0"
-            onClick={() => {
-              SetTabsOn(false);
-              SetTabs("info");
-            }}
-          >
-            Active
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            eventKey="link-1"
-            onClick={() => {
-              SetTabsOn(false);
-              SetTabs("shipping");
-            }}
-          >
-            Option 2
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            eventKey="link-2"
-            onClick={() => {
-              SetTabsOn(false);
-              SetTabs("refund");
-            }}
-          >
-            Option 3
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
-      <CSSTransition in={tabsOn} classNames="tabsTransition" timeout={500}>
-        <TabContent tabs={tabs} SetTabsOn={SetTabsOn} />
-      </CSSTransition>
+      <div className="container-sm">
+        <div className="row">
+          <Nav variant="tabs" defaultActiveKey="link-0">
+            <Nav.Item>
+              <Nav.Link
+                eventKey="link-0"
+                onClick={() => {
+                  SetTabsOn(false);
+                  SetTabs("info");
+                }}
+              >
+                상세정보
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                eventKey="link-1"
+                onClick={() => {
+                  SetTabsOn(false);
+                  SetTabs("shipping");
+                }}
+              >
+                상품후기
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                eventKey="link-2"
+                onClick={() => {
+                  SetTabsOn(false);
+                  SetTabs("refund");
+                }}
+              >
+                상품문의
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </div>
+      </div>
+      <div className="container-sm py-5">
+        <div className="row">
+          <CSSTransition in={tabsOn} classNames="tabsTransition" timeout={500}>
+            <TabContent tabs={tabs} SetTabsOn={SetTabsOn} />
+          </CSSTransition>
+        </div>
+      </div>
       <Banner />
     </>
   );
 }
 function TabContent(props) {
   return <div>{tabUi[props.tabs]}</div>;
-  // if (props.tabs === 0) {
-  //   return <div>0번째 내용입니다.</div>;
-  // } else if (props.tabs === 1) {
-  //   return <div>1번째 내용입니다.</div>;
-  // } else {
-  // }
 }
 
 function DetailState(state) {
-  console.log(state);
   return {
     state: state.reducer,
     alertstate: state.alertReducer,

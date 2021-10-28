@@ -4,13 +4,15 @@ import styled from "styled-components";
 function Banner() {
   const BannerWrap = styled.div`
     position: fixed;
-    top: 50%;
+    top: 67%;
     right: 30px;
     width: 130px;
-    height: 300px;
+    height: 180px;
     background: white;
-    border: 1px solid #ededed;
-    transform: translateY(-20%);
+    border:1px solid #6c757d;
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
   `;
   const BannerTitle = styled.p`
     text-align: center;

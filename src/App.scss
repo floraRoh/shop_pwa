@@ -1,4 +1,17 @@
 @import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-style: normal;
+  font-weight: 400;
+  src: url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot");
+  src: url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix")
+      format("embedded-opentype"),
+    url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff")
+      format("woff"),
+    url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf")
+      format("truetype");
+}
 @font-face {
   font-family: "IM_Hyemin-Regular";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2")
@@ -15,8 +28,8 @@
   text-decoration: none;
   color: #262626;
   font-size: 16px;
-  font-family: "IM_Hyemin-Regular", sans-serif;
-  font-weight: 600;
+  // font-family: "IM_Hyemin-Regular", sans-serif;
+  font-family: "Montserrat", "NanumBarunGothic", sans-serif;
 }
 
 a {
@@ -54,6 +67,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   .spinner-border {
     width: 6rem;
     height: 6rem;
@@ -61,8 +75,34 @@ img {
     flex-direction: column;
   }
 }
+.swiper-pagination-bullet {
+  width: 4px !important;
+  height: 4px !important;
+}
+.swiper-pagination-bullet-active {
+  width: 20px !important;
+  border-radius: 8px !important;
+  height: 4px !important;
+  background: #ffffff !important;
+}
+.btn.more {
+  border: 1px solid #000000;
+  color: #ffffff;
+  background: #000000;
+  padding: 10px 50px;
+  &:hover {
+    background: #ffffff;
+    color: #000000;
+  }
+}
 @media screen and (max-width: 1024px) {
   * {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .card-list {
+    width: 50%;
   }
 }

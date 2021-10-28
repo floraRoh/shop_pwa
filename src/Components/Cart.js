@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "styles/cart.scss";
 
 function Cart(props) {
@@ -48,7 +48,7 @@ function Cart(props) {
                       +
                     </button>
                   </td>
-                  <td>{data.price}</td>
+                  <td>{`${data.price.toLocaleString('ko-KR')} 원`}</td>
                 </tr>
               );
             })}

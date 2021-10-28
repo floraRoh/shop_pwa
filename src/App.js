@@ -3,7 +3,6 @@ import React, { useState, lazy, Suspense } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import NavBar from "Components/NavBar";
-import Jumbo from "Components/Jumbo";
 const List = lazy(() => {
   return import("Components/List");
 });
@@ -20,10 +19,8 @@ import Data from "Components/Data";
 import Footer from "Components/Footer";
 import axios from "axios";
 
-
 function App() {
   const [dataList, SetDataList] = useState(Data);
-  // axios.post("서버 url", { id: "codingapple", pw: 1234 });
   function moreInformation() {
     axios
       .get("https://floraroh.github.io/shop/data.json")
@@ -49,23 +46,17 @@ function App() {
         }
       >
         <NavBar />
-        <Jumbo />
         <Switch>
           <Route path="/shop_pwa" exact={true}>
-            {/* <ContentContext.Provider value={dataList}> */}
-            <div className="container mt-6 mb-6">
-              <div className="row">
-                <List dataList={dataList} />
-                <div className="text-center">
-                  <button
-                    type="button"
-                    className="btn btn-primary font-bold"
-                    onClick={moreInformation}
-                  >
-                    더 보기
-                  </button>
-                </div>
-              </div>
+            <List dataList={dataList} />
+            <div className="text-center mb-5">
+              <button
+                type="button"
+                className="btn font-bold more"
+                onClick={moreInformation}
+              >
+                더 보기
+              </button>
             </div>
             {/* <AA /> */}
             {/* </ContentContext.Provider> */}
