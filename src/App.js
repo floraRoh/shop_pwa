@@ -70,6 +70,10 @@ function App() {
         </Switch>
         <Footer />
       </Suspense>
+      <div className="button-animation">
+        <button className="top"><i class="bi bi-chevron-up"></i></button>
+        <button className="bottom"><i class="bi bi-chevron-down"></i></button>
+      </div>
     </>
   );
 }

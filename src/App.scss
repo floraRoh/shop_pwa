@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css");
 @font-face {
   font-family: "NanumBarunGothic";
   font-style: normal;
@@ -93,6 +94,24 @@ img {
   &:hover {
     background: #ffffff;
     color: #000000;
+  }
+}
+.button-animation {
+  position: fixed;
+  right: 50px;
+  bottom: 20px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  button {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+    border: 1px solid #ededed;
+    background: #ffffff;
+  }
+  @media screen and (max-width: 752px) {
+    display: none;
   }
 }
 @media screen and (max-width: 1024px) {
